@@ -8,5 +8,5 @@ for _ in ruby jq; do
   fi
 done
 
-ruby -rjson -ryaml -e "puts JSON.dump YAML.load STDIN" | jq $@
+ruby -rjson -ryaml -e "puts JSON.dump YAML.load STDIN" | jq "$@"
 # vim: set ft=sh :

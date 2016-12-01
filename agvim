@@ -9,6 +9,6 @@ for _ in ag peco vim; do
   fi
 done
 
-SELECTED="$(ag $@ | peco --query "$LBUFFER")"
+SELECTED="$(ag "$@" | peco --query "$LBUFFER")"
 test -n "$SELECTED" && eval "vim $(echo $SELECTED | awk -F : '{print $1 " +" $2}')"
 # vim: set ft=sh :
