@@ -3,10 +3,10 @@
 set -e
 
 for _ in ag peco vim; do
-    if ! which $_ >/dev/null 2>&1; then
-        echo "You need to install $_ for running $(basename "$0")." >&2
-        exit 1
-    fi
+  if ! which $_ >/dev/null 2>&1; then
+    echo "You need to install $_ for running $(basename "$0")." >&2
+    exit 1
+  fi
 done
 
 SELECTED="$(ag $@ | peco --query "$LBUFFER")"

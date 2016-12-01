@@ -2,21 +2,20 @@
 set -eo pipefail
 
 if ! which docker >/dev/null 2>&1; then
-    echo "You need to install docker for running $(basename "$0")." >&2
-    exit 1
+  echo "You need to install docker for running $(basename "$0")." >&2
+  exit 1
 fi
 
 while true; do
-    read -p 'Are you sure you want to remove all docker images? [Y/n] ' Answer
-    case $Answer in
-        '' | [Yy]* )
-            break;
-            ;;
-        [Nn]* )
-            exit 1
-            ;;
-        * )
-    esac
+  read -p 'Are you sure you want to remove all docker images? [Y/n] ' Answer
+  case $Answer in
+    '' | [Yy]* )
+      break;
+      ;;
+    [Nn]* )
+      exit 1
+      ;;
+  esac
 done;
 
 docker stop $(docker ps -aq)

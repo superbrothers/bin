@@ -2,10 +2,10 @@
 set -e
 
 for _ in ruby jq; do
-    if ! which $_ >/dev/null 2>&1; then
-        echo "You need to install $_ for running $(basename "$0")." >&2
-        exit 1
-    fi
+  if ! which $_ >/dev/null 2>&1; then
+    echo "You need to install $_ for running $(basename "$0")." >&2
+    exit 1
+  fi
 done
 
 ruby -rjson -ryaml -e "puts JSON.dump YAML.load STDIN" | jq $@
