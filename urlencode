@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -e
+
+if [[ $# == 0 ]]; then
+  cat -
+else
+  cat "$1"
+fi | ruby -r cgi -e "puts CGI.escape(STDIN.read)"
+# vim: set ft :
